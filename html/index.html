@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Remote Light Control</title>
+</head>
+<body>
+  <h1>Remote Light Control</h1>
+  <button onclick="sendCommand('LED?button=100')">Turn ON</button>
+  <button onclick="sendCommand('LED?button=0')">Turn OFF</button>
+  
+  <script>
+    function sendCommand(command) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://192.168.0.75/" + command, true);
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
